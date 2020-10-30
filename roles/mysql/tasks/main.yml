@@ -1,0 +1,4 @@
+---
+- name: shell-debug
+  host: test
+  shell: ls

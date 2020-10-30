@@ -1,0 +1,8 @@
+[test]
+10.211.55.30 ansible_port=22 ansible_user=root
+
+[devl]
+10.211.55.30 ansible_port=22 ansible_user=root
+
+[prod]
+10.211.55.30 ansible_port=22 ansible_user=root
