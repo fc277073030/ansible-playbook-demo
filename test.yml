@@ -1,6 +1,16 @@
 - name: Hello World Sample
   hosts: test
+  vars:
+    database: blog_prj_db
+    instance:
+      host: 192.168.5.144
+      port: 3306
+      password: 123456
   tasks:
-    - name: Hello Message
-      debug:
-        msg: "Hello World!"
+    mysql_db:
+      state: dump
+      name: {{ database }}
+      taget: /tmp/backup_{{ database }}.sql
+      login_host: {{ instance.host}}
+      login_port: {{ instance.port}}
+      login_password: {{ instance.password}}
