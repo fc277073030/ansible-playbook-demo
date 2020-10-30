@@ -9,8 +9,8 @@
   tasks:
     mysql_db:
       state: dump
-      name: {{ database }}
-      taget: /tmp/backup_{{ database }}.sql
-      login_host: {{ instance.host}}
-      login_port: {{ instance.port}}
-      login_password: {{ instance.password}}
+      name: blog_prj_db
+      taget: /tmp/backup_blog_prj_db.sql
+      login_host: 192.168.5.144
+      login_port: port
+      login_password: 123456
