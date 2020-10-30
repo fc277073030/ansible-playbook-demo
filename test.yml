@@ -1,16 +1,13 @@
-- name: Hello World Sample
+- name: >
+    Import dump.sql with specific latin1 encoding,
+    similar to mysql -u <username> --default-character-set=latin1 -p <password> < dump.sql
   hosts: test
-  vars:
-    database: blog_prj_db
-    instance:
-      host: 192.168.5.144
-      port: 3306
-      password: 123456
   tasks:
-    mysql_db:
-      state: dump
-      name: blog_prj_db
-      taget: /tmp/backup_blog_prj_db.sql
+    community.mysql.mysql_db:
+      state: import
+      name: all
+      encoding: latin1
+      target: /tmp/dump.sql
       login_host: 192.168.5.144
-      login_port: port
       login_password: 123456
+      login_port: 3306
