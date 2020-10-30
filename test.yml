@@ -6,7 +6,6 @@
     community.mysql.mysql_db:
       state: import
       name: all
-      encoding: latin1
       target: /tmp/dump.sql
       login_host: 192.168.5.144
       login_password: 123456
