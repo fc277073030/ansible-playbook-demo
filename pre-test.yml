@@ -1,16 +1,10 @@
-- name: Hello World Sample
+- name: dump database
   hosts: eu
-  vars:
-    database: blog_prj_db
-    instance:
-      host: 192.168.5.144
-      port: 3306
-      password: 123456
   tasks:
-    mysql_db:
-      state: dump
-      name: {{ database }}
-      taget: /tmp/backup_{{ database }}.sql
-      login_host: {{ instance.host}}
-      login_port: {{ instance.port}}
-      login_password: {{ instance.password}}
+    community.mysql.mysql_db:
+      state: import
+      name: all
+      target: /tmp/dump.sql
+      login_host: 192.168.5.144
+      login_password: 123456
+      login_port: 3306
